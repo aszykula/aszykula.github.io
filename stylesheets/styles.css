@@ -350,7 +350,9 @@ nav ol {
  *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 img {
-  border: 0;
+  border: 15;
+  border-color: #fff;
+  box-shadow: -6px;
   /* 1 */
   -ms-interpolation-mode: bicubic;
   /* 2 */
@@ -816,6 +818,8 @@ section #title .credits {
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #696969;
+  opacity: 0.7;
+  //background-color: #010101;
   margin-top: -10px;
 }
 section #title .credits.left {
