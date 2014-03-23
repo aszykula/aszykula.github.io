@@ -4,24 +4,42 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
   <meta charset=utf-8>
   <title>Szablon strony HTML5</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <script src="http://code.jquery.com/jquery.min.js"></script>
   <style>
-    body { background: #c2c2c2; }
+    body { background: #222; }
     #map { height: 480px; weight: 50%; }
   </style>
 </head>
 <body>
-  <p>ąćęłńóśźż ĄĆĘŁŃÓŚŹŻ</p>
+  <h3>Strona testowa z leafletem.</h3>
    <div id="map"></div>
      <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
      	<script>
+            
+        // create a map in the "map" div, set the view to a given place and zoom
+		var map = L.map('map').setView([54.3957, 18.5702], 14);
 
-		var map = L.map('map').setView([54.3602, 18.5232], 14);
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
 		
 
-		L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+		L.tileLayer('http://www.openstreetmap.org/#map=16/54.3957/18.5702', {
 			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © '
 		}).addTo(map);
 
 
