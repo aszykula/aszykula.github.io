@@ -9,8 +9,8 @@ Tabelki HTML 5:
 
 
 ## TODO
-1. Opanowaæ [gita][1].
-1. Zapoznaæ siê z **MarkDown**.
+1. OpanowaÄ‡[gita][1].
+1. ZapoznaÄ‡ siÄ™ z **MarkDown**.
 
-[0]:http://aszykula.github.io/Techniki-Internetowe-2014/
+[0]:http://aszykula.github.io/
 [1]:http://git-scm.com/
