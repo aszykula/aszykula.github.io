@@ -32,7 +32,7 @@
      	<script>
             
         // create a map in the "map" div, set the view to a given place and zoom
-		var map = L.map('map').setView([54.3957, 18.5702], 14);
+		var map = L.map('map').setView([54.35428, 18.51208], 14);
 
         // add an OpenStreetMap tile layer
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -51,15 +51,15 @@
 			.bindPopup("<b>Hello world!</b><br />Mieszkam Tu.").openPopup();
 
 		L.circle([54.35428, 18.51208], 100, {
-			color: 'red',
+			color: 'orange',
 			fillColor: '#f03',
 			fillOpacity: 0.5
-		}).addTo(map).bindPopup("I am a circle.");
+		}).addTo(map).bindPopup("Tutaj jest kółko.");
 
 		L.polygon([
-			[54.509, 18.58],
-			[54.503, 18.56],
-			[54.51, 18.547]
+			[54.409, 18.58],
+			[54.403, 18.56],
+			[54.41, 18.547]
 		]).addTo(map).bindPopup("I am a polygon.");
 
 
