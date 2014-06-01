@@ -22,7 +22,7 @@
       background-image: url('images/www.jpg'); 
       background-size: 100% 100%; 
       background-repeat: no-repeat; }
-    #map { height: 480px; weight: 50%; margin: 20px; }
+    #map { height: 680px; weight: 50%; margin: 20px; }
   </style>
 </head>
 <body>
@@ -48,18 +48,19 @@
 
 
 		L.marker([54.35428, 18.51208]).addTo(map)
-			.bindPopup("<b>Hello world!</b><br />Mieszkam Tu.").openPopup();
+			.bindPopup("<h1>Hello world!</h1><br />Mieszkam Tu.").openPopup();
 
 		L.circle([54.35428, 18.51208], 100, {
 			color: 'orange',
 			fillColor: '#f03',
 			fillOpacity: 0.5
-		}).addTo(map).bindPopup("Tutaj jest kółko.");
+		}).addTo(map).bindPopup("<h2>Tutaj jest kółko.</h2>");
 
 		L.polygon([
-			[54.409, 18.58],
-			[54.403, 18.56],
-			[54.41, 18.547]
+			[54.409, 18.48],
+			[54.403, 18.46],
+            [54.41, 18.46],
+			[54.415, 18.457]
 		]).addTo(map).bindPopup("I am a polygon.");
 
 
