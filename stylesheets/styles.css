@@ -554,6 +554,7 @@ strong {
   margin: 0 auto;
   position: relative;
   padding: 0 20px;
+  //color: #cc9e00;
 
 }
 
@@ -714,8 +715,7 @@ dt {
 #header nav li.fork {
   float: left;
   margin-left: 12px;
-  margin-right: 6px;
-    
+  margin-right: 6px;    
 }
 #header nav li.downloads {
   float: right;
