@@ -22,7 +22,7 @@
       background-image: url('images/www.jpg'); 
       background-size: 100% 100%; 
       background-repeat: no-repeat; }
-    #map { height: 680px; weight: 50%; margin: 20px; }
+    #map { height: 480px; weight: 50%; margin: 20px; }
   </style>
 </head>
 <body>
@@ -32,7 +32,7 @@
      	<script>
             
         // create a map in the "map" div, set the view to a given place and zoom
-		var map = L.map('map').setView([54.355, 18.515], 14);
+		var map = L.map('map').setView([54.355, 18.515], 8);
 
         // add an OpenStreetMap tile layer
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -48,7 +48,7 @@
 
 
 		L.marker([54.35428, 18.51208]).addTo(map)
-			.bindPopup("<h1>Hello world!</h1><br />Mieszkam Tu.").openPopup();
+			.bindPopup("<b>Hello world!</b><br />Mieszkam Tu.").openPopup();
 
 		L.circle([54.35428, 18.51208], 100, {
 			color: 'orange',
@@ -59,8 +59,7 @@
 		L.polygon([
 			[54.409, 18.48],
 			[54.403, 18.46],
-            [54.41, 18.46],
-			[54.415, 18.457]
+			[54.41, 18.447]
 		]).addTo(map).bindPopup("I am a polygon.");
 
 
