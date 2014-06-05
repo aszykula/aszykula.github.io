@@ -769,7 +769,7 @@ section #title .credits.right {
   #title .credits {
     display: block;
     width: 100%;
-    line-height: 30px;
+    line-height: 25px;
     text-align: center;
   }
   #title .credits .left {
@@ -796,15 +796,16 @@ section #title .credits.right {
   }
 
 .rslides_container {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   position: relative;
   float: left;
   width: 100%;
+  margin-top: -12px;
   }
 
 
 .rslides_tabs {
-  margin-top: 5px;
+  margin-top: 15px;
   text-align: center;
   }
 
@@ -830,8 +831,8 @@ section #title .credits.right {
   -webkit-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
   -moz-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
   box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
-  width: 9px;
-  height: 9px;
+  width: 2px;
+  height: 2px;
   }
 
 .rslides_tabs .rslides_here a {
