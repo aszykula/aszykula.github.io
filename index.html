@@ -10,6 +10,27 @@
     <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,700,400italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
     <script src="javascripts/leaflet.js"></script>
+    <script src="javascripts/jquery-latest.min.js"></script>
+
+      <script src="javascripts/jquery.min.js"></script>
+  <script src="javascripts/responsiveslides.min.js?v=1.6"></script>
+  <script>
+    $(function () {
+
+      // Slideshow 1
+      $("#slides1").responsiveSlides({
+        auto: true,
+        speed: 900,            // Integer: Speed of the transition, in milliseconds
+        timeout: 3000,          // Integer: Time between slide transitions, in milliseconds
+        pagination: false,
+        nav: false,
+        maxwidth: 800,
+        height: 100
+      });
+
+    });
+  </script>
+
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -38,9 +59,31 @@
           <span class="credits left">Projekt dostosowany przez:&nbsp;<a href="https://github.com/aszykula">aszykula</a></span>
           <span class="credits right">Hostowany na GitHub Pages &mdash; Theme autorstwa:&nbsp;<a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
-        <img style="opacity: 0.9" src="images/1.jpg" alt="aszykula"></br></br>
-      
-       <h2>Witam na mojej stronie na GitHubie.</h2>
+  
+    <h2 style="text-align: center">Witam na mojej stronie na GitHubie.</h2>
+          <!-- Slideshow 1 -->
+    <div class="rslides_container" style="color: rgba(0, 0, 0, 0)">
+      <div id="slides1" class="rslides">
+        <li>
+          <img src="images/5.jpg" alt="" />
+          <p class="caption">O to ja, na torze...</p>
+        </li>
+        <li>
+          <img src="images/2.jpg" alt="" />
+          <p class="caption">bo lubie jeździć bokiem</p>
+        </li>
+        <li>
+          <img src="images/4.jpg" alt="" />
+          <p class="caption">i na limicie</p>
+        </li>
+        <li>
+          <img src="images/3.jpg" alt="" />
+          <p class="caption">ścigać się z ziomalami   ;-).</p>
+        </li>
+      </div>
+    </div>
+
+
     <p>
      Poniżej będę umieszczał zadania z przedmiotu Techniki Internetowe. Strona korzysta z czcionki Alegreya, kroju normal, italic i bold, zedfiniowanych w stylach strony.
     </p>

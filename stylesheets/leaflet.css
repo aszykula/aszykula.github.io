@@ -241,7 +241,7 @@
 .leaflet-bar a.leaflet-disabled {
 	cursor: default;
 	background-color: #f4f4f4;
-	color: #000;
+	color: #bbb;
 	}
 
 .leaflet-touch .leaflet-bar a {
