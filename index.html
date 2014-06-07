@@ -91,6 +91,7 @@
         <p><li class="fork"><b style="color: red">KartCenter </b> -> dwie lokalizacje - Sopot i Władysławowo.</li>
         <li class="fork"><b style="color: black; background: white">PitStop </b> -> dwie lokalizacje - Gdynia i Gdańsk.</li>
         <li class="fork"><b style="color: gold">Indoorkarting </b> -> jedna lokalizacja - Gdańsk.</li>
+        <li class="fork"><b style="color: #0cf">Miejsca do sprawdzenia</b> -> w tej lokalizacji może byc tor gokartowy (<i>zaznacz miejsce na mapie</i>).</li>
         </p>
     <div id="map">
 	<script>
@@ -113,10 +114,26 @@
 
 		var blackIcon = new LeafIcon({iconUrl: 'images/gk1.png'}), 
 			redIcon = new LeafIcon({iconUrl: 'images/gk2.png'}),
-			blueIcon = new LeafIcon({iconUrl: 'images/gk3.png'});
+			blueIcon = new LeafIcon({iconUrl: 'images/gk4.png'});
+        	yellowIcon = new LeafIcon({iconUrl: 'images/gk3.png'});
+
         
+        for (var i = 1; i < localStorage.length; i=i+2) {
+            console.log(localStorage.getItem(i)+" "+localStorage.getItem(i+1));
+            L.marker([localStorage.getItem(i),localStorage.getItem(i+1)],{icon: blueIcon}).bindPopup("Miejsce do sprawdzenia - #" + (i+1)/2).addTo(map);
+        }
+
+        function onMapClick(e) {
+            localStorage.setItem(localStorage.length+1, e.latlng.lat);
+            localStorage.setItem(localStorage.length+1, e.latlng.lng);
+            console.log(localStorage.getItem(localStorage.length-1));
+            console.log(localStorage.getItem(localStorage.length));
+            location.reload();
+        }
+
+        map.on('click', onMapClick);        
         
-        L.marker([54.37163, 18.62687], {icon: blueIcon}).bindPopup("IndoorKarting - Gdańsk").addTo(map);
+        L.marker([54.37163, 18.62687], {icon: yellowIcon}).bindPopup("IndoorKarting - Gdańsk").addTo(map);
 		L.marker([54.38974, 18.63692], {icon: blackIcon}).bindPopup("PitStop - Gdańsk").addTo(map);
 		L.marker([54.43288, 18.56380], {icon: redIcon}).bindPopup("KartCenter - Sopot").addTo(map);
         L.marker([54.52558, 18.54288], {icon: blackIcon}).bindPopup("PitStop - Gdynia").addTo(map);
@@ -133,16 +150,18 @@
         <li>krój italic (400italic): <i>leń mógł część łąki źle zżąć - ążśźęćńół ĄŻŚŹĘĆŃÓŁ</i></li>
         <li>krój bold (700): <b>leń mógł część łąki źle zżąć - ążśźęćńół ĄŻŚŹĘĆŃÓŁ</b></li>
     </div></br>
-    <hr>               
-    <div id="prace">
-     <nav>
-      <li class="fork">
-          <p><a href="tables1.html">Tabelki:</a></p>
-       
-      </li>
-     </nav>
-    </div>
     
+    <hr>
+    <div style="text-align: center">
+      <iframe src="//slides.com/arturszykula/prezentacja-aszykula/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>      
+
+    </div>  
+      
+    <hr>               
+        <h2>Próbny tekst -> nagłówek 2</h2>
+        <h3>dla ukazaniu układu -> nagłówek 3</h3>
+        <p>i formatowania tekstu po modyfikacji stylów CSS -> paragraf</p>
+
     <hr>
     <!-- start slipsum code -->
 
