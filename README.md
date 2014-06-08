@@ -5,12 +5,9 @@
 
 ========================
 
-Tabelki HTML 5:
-
-
 ## TODO
-1. Opanować[gita][1].
-1. Zapoznać się z **MarkDown**.
+1. Repozytoium[gita][1].
+1. Markdown **MarkDown**.
 
 [0]:http://aszykula.github.io/
 [1]:http://git-scm.com/
