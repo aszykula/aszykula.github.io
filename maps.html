@@ -1,13 +1,17 @@
-<!doctype html public "♥♥♥">
+<!doctype html public "Leaflet">
 <html lang=pl>
 <head>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
   <meta charset=utf-8>
-  <title>Szablon strony HTML5</title>
+    <title>Techniki internetowe 2014</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/leaflet.css">
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,700,400italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
+    <script src="javascripts/leaflet.js"></script>
+    <script src="javascripts/jquery-latest.min.js"></script>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/responsiveslides.min.js?v=1.6"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,66 +19,66 @@
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <script src="http://code.jquery.com/jquery.min.js"></script>
-  <style>
-    body { 
-      background-color: #222; 
-      background-image: url('images/www.jpg'); 
-      background-size: 100% 100%; 
-      background-repeat: no-repeat; }
-    #map { height: 480px; weight: 50%; margin: 20px; }
-  </style>
-</head>
+    <style>
+        #map { height: 340px; weight: 200px; margin: 10px; }
+    </style>  </head>
 <body>
-  <h3>Strona testowa z leafletem.</h3>
-   <div id="map"></div>
-     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-     	<script>
-            
-        // create a map in the "map" div, set the view to a given place and zoom
-		var map = L.map('map').setView([54.355, 18.515], 8);
+    <h2>Mapa, użycie Leafletu i openmaps.</h2>
+        <h3>Popularne tory kartingowe:</h3>
+        <p><li class="fork"><b style="color: red">KartCenter </b> -> dwie lokalizacje - Sopot i Władysławowo.</li>
+        <li class="fork"><b style="color: black; background: white">PitStop </b> -> dwie lokalizacje - Gdynia i Gdańsk.</li>
+        <li class="fork"><b style="color: gold">Indoorkarting </b> -> jedna lokalizacja - Gdańsk.</li>
+        <li class="fork"><b style="color: #0cf">Miejsca do sprawdzenia</b> -> w tej lokalizacji może byc tor gokartowy (<i>zaznacz miejsce na mapie</i>).</li>
+        </p>
+    <div id="map">
+	<script>
+		var map = L.map('map').setView([54.57, 18.61], 9);
 
-        // add an OpenStreetMap tile layer
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-		
-
-		L.tileLayer('http://www.openstreetmap.org/#map=16/54.35428/18.51208', {
-			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © '
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
+		var LeafIcon = L.Icon.extend({
+			options: {
+				shadowUrl: 'images/gk_sh.png',
+				iconSize:     [32, 32],
+				shadowSize:   [32, 64],
+				iconAnchor:   [16, 16],
+				shadowAnchor: [16, 48],
+				popupAnchor:  [0, -16]
+			}
+		});
 
-		L.marker([54.35428, 18.51208]).addTo(map)
-			.bindPopup("<b>Hello world!</b><br />Mieszkam Tu.").openPopup();
+		var blackIcon = new LeafIcon({iconUrl: 'images/gk1.png'}), 
+			redIcon = new LeafIcon({iconUrl: 'images/gk2.png'}),
+			blueIcon = new LeafIcon({iconUrl: 'images/gk4.png'});
+        	yellowIcon = new LeafIcon({iconUrl: 'images/gk3.png'});
 
-		L.circle([54.35428, 18.51208], 100, {
-			color: 'orange',
-			fillColor: '#f03',
-			fillOpacity: 0.5
-		}).addTo(map).bindPopup("<h2>Tutaj jest kółko.</h2>");
+        
+        for (var i = 1; i < localStorage.length; i=i+2) {
+            console.log(localStorage.getItem(i)+" "+localStorage.getItem(i+1));
+            L.marker([localStorage.getItem(i),localStorage.getItem(i+1)],{icon: blueIcon}).bindPopup("Miejsce do sprawdzenia - #" + (i+1)/2).addTo(map);
+        }
 
-		L.polygon([
-			[54.409, 18.48],
-			[54.403, 18.46],
-			[54.41, 18.447]
-		]).addTo(map).bindPopup("I am a polygon.");
+        function onMapClick(e) {
+            localStorage.setItem(localStorage.length+1, e.latlng.lat);
+            localStorage.setItem(localStorage.length+1, e.latlng.lng);
+            console.log(localStorage.getItem(localStorage.length-1));
+            console.log(localStorage.getItem(localStorage.length));
+            location.reload();
+        }
 
-
-		var popup = L.popup();
-
-		function onMapClick(e) {
-			popup
-				.setLatLng(e.latlng)
-				.setContent("You clicked the map at " + e.latlng.toString())
-				.openOn(map);
-		}
-
-		map.on('click', onMapClick);
+        map.on('click', onMapClick);        
+        
+        L.marker([54.37163, 18.62687], {icon: yellowIcon}).bindPopup("IndoorKarting - Gdańsk").addTo(map);
+		L.marker([54.38974, 18.63692], {icon: blackIcon}).bindPopup("PitStop - Gdańsk").addTo(map);
+		L.marker([54.43288, 18.56380], {icon: redIcon}).bindPopup("KartCenter - Sopot").addTo(map);
+        L.marker([54.52558, 18.54288], {icon: blackIcon}).bindPopup("PitStop - Gdynia").addTo(map);
+        L.marker([54.78925, 18.42401], {icon: redIcon}).bindPopup("KartCenter - Władysławowo").addTo(map);
 
 	</script>
-
+    </div></br>
+    <hr>
+    <div>
 </body>
 </html>
